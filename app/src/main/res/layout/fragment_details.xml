@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="6dp">
+        <TextView
+            android:id="@+id/IDTxt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#0d253f"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="#D1E8E2"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/addrTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/purple_200" />
+        <!-- address-->
+        <TextView
+            android:id="@+id/cityTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/purple_200" />
+
+        <TextView
+            android:id="@+id/suiteTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/purple_200" />
+        <TextView
+            android:id="@+id/zipTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/purple_200" />
+        <TextView
+            android:id="@+id/geoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/purple_200" />
+
+        <TextView
+            android:id="@+id/companyTxt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#0d253f"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="#D1E8E2"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/phoneTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:layout_marginTop="6dp"
+            android:padding="5dp"
+            android:textColor="@color/purple_200" />
+
+        <TextView
+            android:id="@+id/userTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginTop="6dp"
+            android:padding="5dp"
+            android:textColor="@color/purple_200"/>
+        <TextView
+            android:id="@+id/webTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginTop="6dp"
+            android:padding="5dp"
+            android:textColorLink="#00ff00"
+            android:textColor="@color/purple_200" />
+        <!-- company -->
+
+        <TextView
+            android:id="@+id/bsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:padding="5dp"
+            android:textColorLink="@color/purple_200"
+            android:textColor="@color/purple_200" />
+        <TextView
+            android:id="@+id/catchphraseTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/purple_200" />
+        <TextView
+            android:id="@+id/name2Txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/purple_200" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Users List</string>
+    <string name="street">Street: %1$s</string>
+    <string name="city">City: %1$s</string>
+    <string name="suite">Suite: %1$s</string>
+    <string name="zip">Zip: %1$s</string>
+    <string name="geo">Geo: %1$s</string>
+    <string name="web">Website: %1$s</string>
+    <string name="phone">Phone: %1$s</string>
+    <string name="username">UserName: %1$s</string>
+    <string name="company">Company: %1$s</string>
+    <string name="catchphrase">CatchPhrase: %1$s</string>
+    <string name="bs">BS: %1$s</string>
+</resources>
