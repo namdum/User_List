@@ -12,6 +12,7 @@ import com.example.userlist.view.Adapter.MainAdapter
 import com.example.userlist.viewmodel.UserViewModel
 import com.example.userlist.viewmodel.ViewModelFactory
 import com.example.userlist.databinding.FragmentMainBinding
+import javax.inject.Inject
 
 class MainFragment : Fragment() {
 
@@ -21,7 +22,12 @@ class MainFragment : Fragment() {
     private val TAG = "MainFragment"
 
 
-    private val retrofitService = RetrofitService.getInstance()
+
+
+     @Inject
+    lateinit var retrofitService:RetrofitService
+    lateinit var viewModelFactory: ViewModelFactory
+
     private var adapter: MainAdapter? = null
 
     // Create a viewModel
@@ -32,14 +38,14 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        component.inject(this)
         //bind view
         _binding = FragmentMainBinding.inflate(inflater, container, false)
-
+        viewModelFactory = ViewModelFactory(Repository(retrofitService))
         //use view model provider factory for param
         viewModel = ViewModelProvider(
             this,
-            ViewModelFactory(Repository(retrofitService))
+            viewModelFactory
         )
             .get(UserViewModel::class.java)
 
@@ -73,7 +79,7 @@ class MainFragment : Fragment() {
     // Observer is waiting for viewModel to update our UI
     private fun fragmentTextUpdateObserver() {
 
-        viewModel.userList.observe(viewLifecycleOwner,{
+        viewModel.charList.observe(viewLifecycleOwner,{
             adapter!!.setUserList(it)
         })
         viewModel.errorMessage.observe(viewLifecycleOwner,{

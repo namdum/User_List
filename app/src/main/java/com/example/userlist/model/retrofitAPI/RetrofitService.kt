@@ -1,21 +1,33 @@
 package com.example.userlist.model.retrofitAPI
 
-import com.example.userlist.model.UserModelItem
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
+import com.example.userlist.model.chars.Characters
+import com.example.userlist.model.comics.Comic
+import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface RetrofitService {
 
 
-    @GET("users")
-    fun getAllUsers(
-    ): Call <List<UserModelItem>>
+    @GET("v1/public/characters")
+    suspend fun getAllChars(@Query("ts") ts: String,
+                    @Query("apikey") apikey: String,
+                    @Query("hash") hash: String,
+                    //@Query("limit") limit:Int,
+                    @Query("orderBy") orderBy: String
+): Response <Characters>
 
-    companion object {
+    @GET("/v1/public/characters/{characterId}/comics")
+    suspend fun getAllComics(@Path("characterId") characterId: Int,
+                    @Query("ts") ts: String,
+                    @Query("apikey") apikey: String,
+                    @Query("hash") hash: String,
+                    @Query("limit") limit:Int,
+                    //@Query("orderBy") orderBy: String
+    ): Response <Comic>
+
+   /* companion object {
         var retrofitService: RetrofitService? = null
 
         val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
@@ -30,13 +42,13 @@ interface RetrofitService {
 
             if (retrofitService == null) {
                 val retrofit = Retrofit.Builder()
-                    .baseUrl("https://jsonplaceholder.typicode.com/")
+                    .baseUrl("https://gateway.marvel.com/")
                     .addConverterFactory(GsonConverterFactory.create())
-                    //.client(client)
+                    .client(client)
                     .build()
                 retrofitService = retrofit.create(RetrofitService::class.java)
             }
             return retrofitService!!
         }
-    }
+    }*/
 }

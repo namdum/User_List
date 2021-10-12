@@ -7,13 +7,16 @@ import androidx.fragment.app.commit
 import com.example.userlist.R
 import androidx.fragment.app.add
 import androidx.fragment.app.replace
-import com.example.userlist.model.Address
-import com.example.userlist.model.Company
-import com.example.userlist.model.Geo
-import com.example.userlist.model.UserModelItem
+import com.example.userlist.model.*
+import com.example.userlist.model.retrofitAPI.RetrofitService
 import com.example.userlist.view.Adapter.idClickListener
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), idClickListener {
+class MainActivity() : AppCompatActivity(), idClickListener {
+
+    @Inject
+    lateinit var retrofitService: RetrofitService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,10 +34,10 @@ class MainActivity : AppCompatActivity(), idClickListener {
     }
 
     override fun getIDClick(
-        view: View, userModelItem: UserModelItem,
+        view: View,  userModelItem: Int,
     ) {
         val bundle = Bundle()
-        bundle.putSerializable("overview_data", userModelItem)
+        bundle.putInt("overview_data", userModelItem)
 
         supportFragmentManager.commit {
             setReorderingAllowed(true)

@@ -24,16 +24,33 @@
             app:layout_constraintStart_toStartOf="parent"
 
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/addrTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
             android:padding="5dp"
-            android:textColor="@color/purple_200" />
+            android:verticalSpacing="5dp"
+            android:horizontalSpacing="5dp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+      <!--  <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgComicView"
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_gravity="fill_horizontal|center_vertical"
+
+            android:scaleType="fitXY"
+            android:paddingLeft="4dp"
+            android:minWidth="40dp"
+            android:paddingRight="4dp"
+            android:paddingTop="8dp"
+            android:minHeight="32dp"
+            android:paddingBottom="8dp"
+             />-->
         <!-- address-->
-        <TextView
-            android:id="@+id/cityTxt"
+      <!--  <TextView
+            android:id="@+id/creatorTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -58,19 +75,7 @@
             android:padding="5dp"
             android:textColor="@color/purple_200" />
 
-        <TextView
-            android:id="@+id/companyTxt"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#0d253f"
-            android:gravity="center_vertical"
-            android:paddingStart="8dp"
-            android:paddingLeft="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="#D1E8E2"
-            app:layout_constraintStart_toStartOf="parent"
 
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/phoneTxt"
@@ -97,10 +102,10 @@
             android:layout_marginTop="6dp"
             android:padding="5dp"
             android:textColorLink="#00ff00"
-            android:textColor="@color/purple_200" />
+            android:textColor="@color/purple_200" />-->
         <!-- company -->
 
-        <TextView
+       <!-- <TextView
             android:id="@+id/bsTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,6 +124,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:textColor="@color/purple_200" />
+            android:textColor="@color/purple_200" />-->
     </LinearLayout>
 </FrameLayout>
