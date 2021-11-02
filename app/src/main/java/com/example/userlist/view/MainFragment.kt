@@ -1,5 +1,6 @@
 package com.example.userlist.view
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,12 +27,14 @@ class MainFragment : Fragment() {
 
      @Inject
     lateinit var retrofitService:RetrofitService
+
     lateinit var viewModelFactory: ViewModelFactory
 
     private var adapter: MainAdapter? = null
 
     // Create a viewModel
     private lateinit var viewModel: UserViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +55,7 @@ class MainFragment : Fragment() {
 
 
         //init adapter for recyclerview
-        adapter = MainAdapter(requireContext())
+        adapter = MainAdapter()
 
         val view = binding.root
 

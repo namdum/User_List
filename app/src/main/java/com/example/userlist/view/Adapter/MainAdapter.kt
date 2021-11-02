@@ -1,6 +1,5 @@
  package com.example.userlist.view.Adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,10 +7,12 @@ import com.bumptech.glide.Glide
 import com.example.userlist.databinding.AdapterUsersBinding
 import com.example.userlist.model.chars.Result
 
- class MainAdapter(context: Context) : RecyclerView.Adapter<MainViewHolder>() {
+ class MainAdapter() : RecyclerView.Adapter<MainViewHolder>() {
 
     //create mutable list
     private var users = mutableListOf<Result>()
+
+    private lateinit var clickHandler: idClickListener
 
 
     //dataset from init movie list
@@ -20,16 +21,13 @@ import com.example.userlist.model.chars.Result
         notifyDataSetChanged()
     }
 
-    private val clickHandler: idClickListener = context as idClickListener
-    // private val idHandler: idListener = context as idListener
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = AdapterUsersBinding.inflate(
             inflater,
             parent, false
-        )/**/
-
+        )
+        clickHandler = parent.context as idClickListener
         return MainViewHolder(binding)
     }
 
@@ -41,8 +39,7 @@ import com.example.userlist.model.chars.Result
         val name: String = users[position].name
         val thumbExt: String = users[position].thumbnail.extension
         val thumbPath: String = users[position].thumbnail.path
-        val urlImg: String = "$thumbPath.$thumbExt"
-        println(urlImg)
+        val urlImg = "$thumbPath.$thumbExt"
         /*val attrTxt: String = users[position].attributionText*/
         /*val copyright: String = users[position].copyright*/
         /*val etag:String = users[position].etag*/
@@ -76,7 +73,6 @@ import com.example.userlist.model.chars.Result
         //holds thumbnal image
         Glide.with(holder.itemView.context)
             .load(urlImg)
-           // .placeholder(R.drawable.img_not_found)
             .centerInside()
             .into(holder.binding.imageview)
 
@@ -84,7 +80,6 @@ import com.example.userlist.model.chars.Result
         //listener for image click event
         holder.binding.imageview.setOnClickListener {
             clickHandler.getIDClick(it, id.toInt())
-            //idHandler.getID(id)
         }
 
     }

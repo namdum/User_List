@@ -1,8 +1,10 @@
 package com.example.userlist.view
 
 import android.app.Application
+import com.example.userlist.di.AppModule
 import com.example.userlist.di.ComicsComponent
 import com.example.userlist.di.DaggerComicsComponent
+
 
 class App :Application() {
   override fun onCreate() {
@@ -10,7 +12,10 @@ class App :Application() {
 
     component = DaggerComicsComponent
       .builder()
+      .appModule(AppModule())
       .build()
   }
+
+
 }
 lateinit var component: ComicsComponent

@@ -14,8 +14,9 @@ interface RetrofitService {
     suspend fun getAllChars(@Query("ts") ts: String,
                     @Query("apikey") apikey: String,
                     @Query("hash") hash: String,
-                    //@Query("limit") limit:Int,
-                    @Query("orderBy") orderBy: String
+                    @Query("limit") limit:Int,
+                    @Query("orderBy") orderBy: String,
+                    @Query("nameStartsWith") nameStartsWith: String
 ): Response <Characters>
 
     @GET("/v1/public/characters/{characterId}/comics")
@@ -27,28 +28,4 @@ interface RetrofitService {
                     //@Query("orderBy") orderBy: String
     ): Response <Comic>
 
-   /* companion object {
-        var retrofitService: RetrofitService? = null
-
-        val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
-            this.level = HttpLoggingInterceptor.Level.BODY
-        }
-
-        val client: OkHttpClient = OkHttpClient.Builder().apply {
-            this.addInterceptor(interceptor)
-        }.build()
-
-        fun getInstance(): RetrofitService {
-
-            if (retrofitService == null) {
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("https://gateway.marvel.com/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .client(client)
-                    .build()
-                retrofitService = retrofit.create(RetrofitService::class.java)
-            }
-            return retrofitService!!
-        }
-    }*/
 }

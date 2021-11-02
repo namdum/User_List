@@ -1,21 +1,16 @@
 package com.example.userlist.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.commit
-import com.example.userlist.R
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
+import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import com.example.userlist.model.*
-import com.example.userlist.model.retrofitAPI.RetrofitService
+import com.example.userlist.R
 import com.example.userlist.view.Adapter.idClickListener
-import javax.inject.Inject
 
 class MainActivity() : AppCompatActivity(), idClickListener {
 
-    @Inject
-    lateinit var retrofitService: RetrofitService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,14 +18,13 @@ class MainActivity() : AppCompatActivity(), idClickListener {
         //init Main Frag
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
-                setReorderingAllowed(true)
+               // setReorderingAllowed(true)
                 add<MainFragment>(
                     R.id.fragment_container_view
                 )
+
             }
         }
-
-
     }
 
     override fun getIDClick(
@@ -48,7 +42,8 @@ class MainActivity() : AppCompatActivity(), idClickListener {
         }
     }
 
-    override  fun onBackPressed():Unit {
+
+    override  fun onBackPressed() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             replace<MainFragment>(

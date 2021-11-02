@@ -5,9 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.userlist.model.Repository
+import com.example.userlist.model.chars.Characters
 import com.example.userlist.model.chars.Result
 import com.example.userlist.model.comics.Results
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.asFlow
+import retrofit2.Response
+import javax.annotation.Resource
 import javax.inject.Inject
 
 class UserViewModel @Inject constructor( var repository: Repository) : ViewModel() {
@@ -19,23 +23,26 @@ class UserViewModel @Inject constructor( var repository: Repository) : ViewModel
   private val _charData = MutableLiveData<List<Result>>()
   val charList: LiveData<List<Result>> get() = _charData
 
-  val _comicData = MutableLiveData<List<Results>>()
+  private val _comicData = MutableLiveData<List<Results>>()
   val comicList: LiveData<List<Results>> get() = _comicData
 
   //error for logging
   val errorMessage = MutableLiveData<String>()
 
-  var job: Job? = null
+  //lateinit var response:Response<Characters>
 
-  val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+  private lateinit var job: Job
+
+
+  private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
     onError("Exception handled: ${throwable.localizedMessage}")
   }
 
 
   //response from init call
-  fun getAllUsers() {
+   fun getAllUsers()  {
 
-    viewModelScope.launch(exceptionHandler) {
+    job = viewModelScope.launch(exceptionHandler) {
 
       val response = repository.getAllChar()
 
@@ -52,7 +59,7 @@ class UserViewModel @Inject constructor( var repository: Repository) : ViewModel
   //response from id call
   fun getAllComics(id: Int) {
 
-    viewModelScope.launch {
+    job = viewModelScope.launch {
 
       val response = repository.getAllComics(id)
 
@@ -70,5 +77,9 @@ class UserViewModel @Inject constructor( var repository: Repository) : ViewModel
 
   private fun onError(message: String) {
     errorMessage.value = message
+  }
+  override fun onCleared() {
+    super.onCleared()
+    job.cancel()
   }
 }
