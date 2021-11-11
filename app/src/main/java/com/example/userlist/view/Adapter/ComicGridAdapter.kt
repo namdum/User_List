@@ -1,3 +1,10 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: ComicGridAdapter
+Usage: Adapter for DetailsFragment. Posts grid of images 2x2 from API
+ **/
+
 package com.example.userlist.view.Adapter
 
 import android.content.Context
@@ -15,12 +22,11 @@ class ComicGridAdapter( private val list: List<Results>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val binding: ViewGridBinding
-        var row = convertView
         val inflater = parent?.context?.
         getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         binding = ViewGridBinding.inflate(inflater, parent, false)
-        row = binding.root
-        var imgUrl:String = list[position].thumbnail.path + "." +
+        val row = binding.root
+        val imgUrl:String = list[position].thumbnail.path + "." +
                 list[position].thumbnail.extension
         Glide.with(row)
             .load(imgUrl)

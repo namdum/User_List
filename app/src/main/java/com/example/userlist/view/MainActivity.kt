@@ -1,3 +1,11 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: MainActivity
+Usage: MainActivity uses fragment manager to instantiate and replace fragment
+when user chooses item.
+ Also, implements interface to retrieve id for character
+ **/
 package com.example.userlist.view
 
 import android.os.Bundle

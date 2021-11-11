@@ -1,18 +1,25 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: MainFragment
+Usage: Fragment thats holds recyclerview via view binding
+ uses ViewModel and observer pattern to send data to adapter
+uses view binding
+ **/
 package com.example.userlist.view
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.userlist.databinding.FragmentMainBinding
 import com.example.userlist.model.Repository
 import com.example.userlist.model.retrofitAPI.RetrofitService
 import com.example.userlist.view.Adapter.MainAdapter
 import com.example.userlist.viewmodel.UserViewModel
 import com.example.userlist.viewmodel.ViewModelFactory
-import com.example.userlist.databinding.FragmentMainBinding
 import javax.inject.Inject
 
 class MainFragment : Fragment() {

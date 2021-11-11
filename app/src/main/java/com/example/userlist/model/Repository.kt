@@ -1,3 +1,10 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: Repository
+Usage: MVVM pattern repository handle data operations.
+They provide a clean API so that the rest of the app can retrieve this data easily
+ **/
 package com.example.userlist.model
 
 import com.example.userlist.BuildConfig

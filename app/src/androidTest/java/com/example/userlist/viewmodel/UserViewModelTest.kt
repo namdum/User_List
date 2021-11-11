@@ -1,3 +1,9 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: UserViewModelTest
+Usage: Tests the View Model w/ Mock data from retrofit2 to repository to test funcs
+ **/
 package com.example.userlist.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule

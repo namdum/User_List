@@ -1,3 +1,10 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: UserViewModel
+Usage: the view Model for MVVM design structure. The repository object is assigned to
+livedata in coroutine to send API data to Observer.
+ **/
 package com.example.userlist.viewmodel
 
 import androidx.lifecycle.LiveData
@@ -15,6 +22,7 @@ import javax.annotation.Resource
 import javax.inject.Inject
 
 class UserViewModel @Inject constructor( var repository: Repository) : ViewModel() {
+
 
   // Create MutableLiveData which MainFragment can subscribe to
   // When this data changes, it triggers the UI to do an update

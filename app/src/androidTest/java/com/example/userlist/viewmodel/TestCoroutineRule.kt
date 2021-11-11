@@ -1,12 +1,19 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: TestCoRoutineRule
+Usage: implements dispatcher needed to test coroutine since viewmodel
+func does not run on main thread
+ **/
 package com.example.userlist.viewmodel
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.*
-import org.junit.rules.TestRule
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
-import org.junit.runners.model.Statement
 
 @ExperimentalCoroutinesApi
 class TestCoroutineRule (

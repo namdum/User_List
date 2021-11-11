@@ -1,3 +1,9 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: RetrofitService
+Usage: Retrofit2 Get calls to API to retrieve data
+ **/
 package com.example.userlist.model.retrofitAPI
 
 import com.example.userlist.model.chars.Characters

@@ -1,4 +1,11 @@
- package com.example.userlist.view.Adapter
+/**
+ * Author Eugene Brown
+App: UserList
+Class: MainAdapter
+Usage: the main adapter provides data for recyclerview
+ using livedata and view binding for viewholder
+ **/
+package com.example.userlist.view.Adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

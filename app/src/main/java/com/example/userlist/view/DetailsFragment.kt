@@ -1,3 +1,11 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: DetailsFragment
+Usage: presents the gridview layout of images from character
+uses ViewModel and observer pattern to send data to adapter
+ uses view binding
+ **/
 package com.example.userlist.view
 
 
@@ -47,8 +55,8 @@ class DetailsFragment : Fragment(){
     ): View {
         component.injectDetails(this)
         //from bundle*/
-//object from main list cardview instance
-        val detailsArrayList = requireArguments().getInt("overview_data")!! as Int
+        //object from main list cardview instance
+        val detailsArrayList = requireArguments().getInt("overview_data")
         this.idChar = detailsArrayList
 
         //binding view
@@ -80,7 +88,7 @@ class DetailsFragment : Fragment(){
     // Observer is waiting for viewModel to update our UI
     private fun fragmentTextUpdateObserver() {
 
-        viewModel.comicList.observe(viewLifecycleOwner, Observer { comicList ->
+        viewModel.comicList.observe(viewLifecycleOwner, { comicList ->
 
             binding.gridView.adapter = ComicGridAdapter(comicList)
 

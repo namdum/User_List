@@ -1,3 +1,10 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: ComicsComponent
+Usage: Grabs Module in Singeleton and injects them in to fragments
+ **/
+
 package com.example.userlist.di
 
 import android.app.Application

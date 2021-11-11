@@ -1,3 +1,9 @@
+/**
+ * Author Eugene Brown
+App: UserList
+Class: MainFragmentTest
+Usage: Tests the MainFragment UI
+ **/
 package com.example.userlist.view
 
 import androidx.fragment.app.testing.launchFragmentInContainer
@@ -12,8 +18,6 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class MainFragmentTest{
-  private val id = 1011334
-
 
   @Test
   fun testMainFragmentImg() {
