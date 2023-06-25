@@ -11,4 +11,9 @@
     <string name="company">Company: %1$s</string>
     <string name="catchphrase">CatchPhrase: %1$s</string>
     <string name="bs">BS: %1$s</string>
+    <string name="menu_title"> Marvel</string>
+    <string name="menu_home"> home</string>
+    <string name="menu_person"> Person</string>
+    <string name="menu_settings"> Settings</string>
+
 </resources>

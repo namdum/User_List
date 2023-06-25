@@ -6,16 +6,35 @@
 
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="6dp">
         <TextView
+            android:id="@+id/emailText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:maxLines="10"
+            android:minLines="2"
+
+            android:paddingLeft="4dp"
+            android:minWidth="40dp"
+            android:paddingRight="4dp"
+
+            android:paddingTop="8dp"
+            android:minHeight="32dp"
+            android:textColor="#116466"
+            android:textSize="8pt" />
+
+
+        <TextView
             android:id="@+id/IDTxt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="#0d253f"
+            android:background="#0d253F"
             android:gravity="center_vertical"
             android:paddingStart="8dp"
             android:paddingLeft="8dp"

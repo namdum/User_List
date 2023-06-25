@@ -25,7 +25,9 @@ open class Repository @Inject constructor(private val retrofitService: RetrofitS
   open suspend fun getAllChar() = retrofitService.getAllChars(
     ts, apikey, md5(ts + hash + apikey), 100,"name","a"
   )
-
+  open suspend fun getAllChar(name:String) = retrofitService.getAllChars(
+    ts, apikey, md5(ts + hash + apikey), 100,"name",name
+  )
   open suspend fun getAllComics(id: Int) = retrofitService.getAllComics(
     id, ts, apikey, md5(ts + hash + apikey), 10
   )

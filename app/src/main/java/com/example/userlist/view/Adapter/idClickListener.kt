@@ -11,6 +11,7 @@ import dagger.Module
 
 @Module
 interface idClickListener {
-
-    fun getIDClick(view: View, userModelItem: Int)
+//added string desc
+    fun getIDClick(view: View, userModelItem: Int, userDescItem: String, name: String, position: Int)
+    fun getPosition(position: Int)
 }

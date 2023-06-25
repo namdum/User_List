@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="600dp"
+    android:layout_height="400dp"
     android:layout_margin="8dp"
     android:elevation="8dp"
     app:cardCornerRadius="8dp"
@@ -20,8 +20,8 @@
         android:textSize="12pt"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColor="#FFFFFF"
+        android:accessibilityHeading="true"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
@@ -45,23 +45,6 @@
             android:minHeight="32dp"
             android:paddingBottom="8dp"/>
 
-            <TextView
-                android:id="@+id/emailText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:maxLines="10"
-                android:minLines="2"
-
-                android:paddingLeft="4dp"
-                android:minWidth="40dp"
-                android:paddingRight="4dp"
-
-                android:paddingTop="8dp"
-                android:minHeight="32dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#116466"
-                android:textSize="10pt" />
 
 
 

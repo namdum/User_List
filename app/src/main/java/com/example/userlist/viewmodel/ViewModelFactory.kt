@@ -2,7 +2,7 @@
  *      ViewModelFactory
  *      Eugene Brown
  *      - ViewModelFactory helper class
- *      - If you add argument in constructor you have
+ *      - If you add argument in constructor of viewmodel you have
  *      to create your own implementation of
  *      ViewModelProvider.Factory to create your ViewModel instance.
  *****************************************************/

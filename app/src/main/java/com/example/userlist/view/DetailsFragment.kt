@@ -21,6 +21,7 @@ import com.example.userlist.model.Repository
 import com.example.userlist.model.comics.Results
 import com.example.userlist.model.retrofitAPI.RetrofitService
 import com.example.userlist.view.Adapter.ComicGridAdapter
+import com.example.userlist.view.Adapter.idClickListener
 import com.example.userlist.viewmodel.UserViewModel
 import com.example.userlist.viewmodel.ViewModelFactory
 import javax.inject.Inject
@@ -36,17 +37,22 @@ class DetailsFragment : Fragment(){
     // Create a viewModel
     private lateinit var viewModel: UserViewModel
 
+
+
     @Inject
     lateinit var retrofitService: RetrofitService
 
     @Inject
     lateinit var factory: ViewModelFactory
     //create mutable list
-    private  var users = mutableListOf<Results>()
+    //private  var users = mutableListOf<Results>()
 
 
     private  var idChar:Int = 0
-
+    private var idDesc:String? ="no details"
+    private var idName:String? = "no name"
+    private var positionRV:Int =  0
+    private lateinit var clickHandler: idClickListener
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,11 +64,27 @@ class DetailsFragment : Fragment(){
         //object from main list cardview instance
         val detailsArrayList = requireArguments().getInt("overview_data")
         this.idChar = detailsArrayList
+        // adding desc
+        val descUserItem = requireArguments().getString("user_desc")
+        this.idDesc = descUserItem
+
+        val descUserName = requireArguments().getString("user_name")
+        this.idName = descUserName
+
+        positionRV  = requireArguments().getInt("position")
+
+        clickHandler = context as idClickListener
 
         //binding view
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.emailText2.text = descUserItem
+        binding.IDTxt.text = descUserName
+        binding.IDTxt.setOnClickListener {
+            clickHandler.getPosition(positionRV)
+
+        }
         factory = ViewModelFactory(Repository(retrofitService))
 
 //use view model provider factory for param
@@ -77,6 +99,7 @@ class DetailsFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.getAllComics(this.idChar)
         fragmentTextUpdateObserver()
         }
@@ -88,11 +111,11 @@ class DetailsFragment : Fragment(){
     // Observer is waiting for viewModel to update our UI
     private fun fragmentTextUpdateObserver() {
 
-        viewModel.comicList.observe(viewLifecycleOwner, { comicList ->
-
+        viewModel.comicList.observe(viewLifecycleOwner) { comicList ->
+//add desc here
             binding.gridView.adapter = ComicGridAdapter(comicList)
 
-        })
+        }
         viewModel.errorMessage.observe(viewLifecycleOwner,{
             println("error: " + it)
         })
